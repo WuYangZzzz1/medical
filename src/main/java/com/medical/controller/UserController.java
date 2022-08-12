@@ -44,10 +44,10 @@ public class UserController {
         username=HtmlUtils.htmlEscape(username);
         user.setUsername(username);
 
-        //  生成注册时间
+        // TODO: 2022/8/12 生成注册时间
         user.setEnrollDate(new Date());
 
-        //  判断用户名是否已经存在
+        // TODO: 2022/8/12 判断用户名是否已经存在
         boolean exist=userServiceImpl.isExist(username);
         if (exist){
             String message="用户名已使用，请重新输入用户名";

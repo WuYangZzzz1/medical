@@ -1,8 +1,10 @@
 package com.medical.entity;
 
+
     import java.time.LocalDate;
-    import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.Date;
+
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -21,6 +23,8 @@ package com.medical.entity;
     public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private int id;
 
     private String username;
 
@@ -59,7 +63,7 @@ package com.medical.entity;
             /**
             * 注册时间
             */
-    private LocalDateTime enrollDate;
+    private Date enrollDate;
 
             /**
             * 医生外键
@@ -71,5 +75,8 @@ package com.medical.entity;
             */
     private String uState;
 
-
+            /**
+             * 收货地址
+             */
+    private String harvestAddress;
 }
