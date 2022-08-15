@@ -4,8 +4,11 @@ package com.medical.controller;
 import com.medical.entity.User;
 import com.medical.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.util.HtmlUtils;
+
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -24,6 +27,7 @@ import java.util.Map;
 public class UserController {
     @Autowired
     UserService userService;
+
 
     @PostMapping("/register")
     public Map<String,Object> register(@RequestBody User user){

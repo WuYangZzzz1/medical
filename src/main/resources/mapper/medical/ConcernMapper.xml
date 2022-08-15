@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.ConcernMapper">
+    <select id="selectConcernJoinUser" resultType="com.medical.entity.User">
+    select  * from concern a join `user` b on a.uiid=b.id where a.uid = #{user.id}
+    </select>
 
 </mapper>

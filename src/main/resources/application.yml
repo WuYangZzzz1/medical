@@ -9,9 +9,9 @@ spring:
     name: lab-user
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.47.128:3306/physician?charset=utf8
-    username: centos
-    password: 123456
+    url: jdbc:mysql://localhost:3306/physician?charset=utf8
+    username: root
+    password: root
 mybatis-plus:
   type-aliases-package: com.medical.entity
   mapper-locations: classpath:mapper/medical/*.xml

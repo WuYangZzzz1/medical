@@ -22,7 +22,9 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+
+    private int id;
+
 
     private String username;
 
@@ -73,6 +75,8 @@ package com.medical.entity;
             */
     private String uState;
 
-    private Integer vipId;
 
+    public void setuState(String uState) {
+        this.uState = uState;
+    }
 }

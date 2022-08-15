@@ -1,10 +1,13 @@
 package com.medical.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.medical.entity.Concern;
 import com.medical.mapper.ConcernMapper;
 import com.medical.service.ConcernService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * <p>
@@ -16,5 +19,4 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ConcernServiceImpl extends ServiceImpl<ConcernMapper, Concern> implements ConcernService {
-
 }

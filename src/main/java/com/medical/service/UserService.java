@@ -15,6 +15,8 @@ import java.util.Map;
  * @since 2022-08-11
  */
 public interface UserService extends IService<User> {
+    User loginUser(String name,String password);
+
 
     /**
      * 用户登录
