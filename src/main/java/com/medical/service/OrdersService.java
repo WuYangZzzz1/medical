@@ -13,4 +13,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface OrdersService extends IService<Orders> {
 
+    Orders findByUid(int uid);
 }

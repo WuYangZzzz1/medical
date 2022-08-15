@@ -22,8 +22,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-    private int id;
 
+    private int id;
 
 
     private String username;
@@ -75,101 +75,6 @@ package com.medical.entity;
             */
     private String uState;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public LocalDate getBrithday() {
-        return brithday;
-    }
-
-    public void setBrithday(LocalDate brithday) {
-        this.brithday = brithday;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public Integer getTel() {
-        return tel;
-    }
-
-    public void setTel(Integer tel) {
-        this.tel = tel;
-    }
-
-    public String getIdcard() {
-        return idcard;
-    }
-
-    public void setIdcard(String idcard) {
-        this.idcard = idcard;
-    }
-
-    public LocalDateTime getEnrollDate() {
-        return enrollDate;
-    }
-
-    public void setEnrollDate(LocalDateTime enrollDate) {
-        this.enrollDate = enrollDate;
-    }
-
-    public Integer getDoid() {
-        return doid;
-    }
-
-    public void setDoid(Integer doid) {
-        this.doid = doid;
-    }
-
-    public String getuState() {
-        return uState;
-    }
 
     public void setuState(String uState) {
         this.uState = uState;
