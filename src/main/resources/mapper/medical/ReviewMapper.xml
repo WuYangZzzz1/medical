@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.ReviewMapper">
+    <resultMap id="reviews" type="Review">
+        <!--        <id property="id" column="id"></id>-->
+        <result property="review" column="review"></result>
+        <result property="reviewDate" column="review_date"></result>
+        <result property="uid" column="uid"></result>
+        <result property="mid" column="mid"></result>
+        <result property="drid" column="drid"></result>
 
+        <association property="drug" javaType="Drug">
+            <result property="dName" column="d_name"/>
+            <result property="describe" column="describe"/>
+            <result property="function" column="function"/>
+            <result property="specification" column="specification"/>
+            <result property="character" column="character"/>
+            <result property="usage" column="usage"/>
+            <result property="ingredient" column="ingredient"/>
+            <result property="taboo" column="taboo"/>
+            <result property="stock" column="stock"/>
+            <result property="price" column="price"/>
+            <result property="cid" column="cid"/>
+
+            <association property="category" javaType="Category">
+                <result property="classes" column="classes"></result>
+            </association>
+        </association>
+
+        <association property="munity" javaType="Munity">
+            <result property="subtitle" column="subtitle"/>
+            <result property="content" column="content"/>
+            <result property="contentDate" column="content_date"/>
+            <result property="cState" column="c_state"/>
+            <result property="uid" column="uid"/>
+            <result property="fabulous" column="fabulous"/>
+        </association>
+    </resultMap>
+<select id="findAllByUid" resultMap="reviews">
+SELECT * FROM review LEFT JOIN drug on review.uid=#{uid} left join munity on munity.uid=#{uid} LEFT JOIN category on category.id=drug.cid</select>
 </mapper>
