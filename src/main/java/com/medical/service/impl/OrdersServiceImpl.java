@@ -23,7 +23,7 @@ public class OrdersServiceImpl extends ServiceImpl<OrdersMapper, Orders> impleme
     public static final String waitReview="waitReview";
     public static final String finish="finish";
     public static final String delete="delete";
-    
+
     @Override
     public Orders findByUid(int uid) {
 //        QueryWrapper wrapper = new QueryWrapper();
