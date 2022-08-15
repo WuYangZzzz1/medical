@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.medical.mapper.OrderitemMapper">
+    <resultMap id="Orderitems" type="Orderitem">
+<!--        <id property="id" column="id"></id>-->
+        <result property="drid" column="drid"></result>
+        <result property="uid" column="uid"></result>
+        <result property="number" column="number"></result>
+        <result property="oid" column="oid"/>
+        <association property="orders" javaType="Orders">
+<!--            <id property="id" column="id"/>-->
+            <result property="orderState" column="order_state"/>
+            <result property="uid" column="uid"/>
+            <result property="orderNumber" column="order_number"/>
+        </association>
+        <association property="drug" javaType="Drug">
+            <result property="dName" column="d_name"/>
+            <result property="describe" column="describe"/>
+            <result property="function" column="function"/>
+            <result property="specification" column="specification"/>
+            <result property="character" column="character"/>
+            <result property="usage" column="usage"/>
+            <result property="ingredient" column="ingredient"/>
+            <result property="taboo" column="taboo"/>
+            <result property="stock" column="stock"/>
+            <result property="price" column="price"/>
+            <result property="cid" column="cid"/>
+
+            <association property="category" javaType="Category">
+                <result property="classes" column="classes"></result>
+            </association>
+
+        </association>
+    </resultMap>
+<select id="findByUid" resultMap="Orderitems">
+    SELECT * from orderitem LEFT JOIN orders on orderitem.oid=orders.id AND orderitem.uid=#{uid} LEFT JOIN drug ON drug.id=orderitem.drid left join category on drug.cid=category.id
+</select>
+</mapper>
