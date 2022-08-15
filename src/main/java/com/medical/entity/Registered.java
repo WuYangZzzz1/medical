@@ -2,6 +2,9 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.List;
+
+    import com.baomidou.mybatisplus.annotation.TableField;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -20,7 +23,7 @@ package com.medical.entity;
     public class Registered implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private Integer id;
             /**
             * 用户id
             */
@@ -46,5 +49,10 @@ package com.medical.entity;
             */
     private String reservationNo;
 
-
+    @TableField(exist = false)
+    private List<Hospital> hospitals;
+    @TableField(exist = false)
+    private List<Department> departments;
+    @TableField(exist = false)
+    private List<User> users;
 }
