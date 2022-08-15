@@ -2,4 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.OrdersMapper">
 
+    <select id="selectUserJoinOrders" resultType="Orders">
+        select *from  orders o join user u on o.uid = u.id
+    </select>
+    <resultMap id="Orders" type="com.medical.entity.Orders">
+        <result column="id" property="id"></result>
+        <result column="order_state" property="orderState"></result>
+        <result column="order_number" property="orderNumber"></result>
+        <association property="user" javaType="com.medical.entity.User">
+            <id property="id" column="id"></id>
+            <result column="username" property="username"></result>
+            <result column="password" property="password"></result>
+            <result column="name" property="name"/>
+            <result column="brithday" property="brithday"/>
+            <result column="age" property="age"/>
+            <result column="sex" property="sex"/>
+            <result column="tel" property="tel"/>
+            <result column="idcard" property="idcard"/>
+        </association>
+    </resultMap>
 </mapper>

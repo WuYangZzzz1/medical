@@ -1,9 +1,13 @@
 package com.medical.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.medical.entity.Orders;
+import com.medical.service.OrdersService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import javax.websocket.server.PathParam;
 
 /**
  * <p>
@@ -16,5 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/medical/orders")
 public class OrdersController {
-
+    @Autowired
+    OrdersService ordersService;
+    @GetMapping("/userByOrders")
+    public Object selectUserJoinOrders(){
+        return  ordersService.selectUserJoinOrders();
+    }
 }

@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.OrderitmeMapper">
-
+    <resultMap id="Orderitme" type="com.medical.entity.Orderitme">
+        <result property="id" column="id"></result>
+        <result property="number" column="number"></result>
+<!--        <association property="orders" javaType="com.medical.entity.Orders">-->
+<!--            <result property="id" column="id"></result>-->
+<!--            <result property="order_state" column="orderState"></result>-->
+<!--            <result property="order_number" column="orderNumber"></result>-->
+            <association property="user" javaType="com.medical.entity.User">
+                <id property="id" column="id"></id>
+                <result property="username" column="username"></result>
+                <result property="password" column="password"></result>
+                <result column="name" property="name"/>
+                <result column="brithday" property="brithday"/>
+                <result column="age" property="age"/>
+                <result column="sex" property="sex"/>
+                <result column="tel" property="tel"/>
+                <result column="idcard" property="idcard"/>
+            </association>
+<!--        </association>-->
+    </resultMap>
+    <select id="selectJoinUser" resultType="Orderitme">
+        SELECT *from user u join orderitme oi on u.id = oi.oid and u.id = #{id}
+    </select>
 </mapper>
