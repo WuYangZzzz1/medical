@@ -42,4 +42,5 @@ package com.medical.entity;
     private Integer oid;
     private Orders orders;
     private float totalPrice;
+
 }
