@@ -2,6 +2,7 @@ package com.medical.service;
 
 import com.medical.entity.Concern;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.medical.entity.User;
 
 /**
  * <p>
@@ -12,5 +13,4 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2022-08-11
  */
 public interface ConcernService extends IService<Concern> {
-
 }

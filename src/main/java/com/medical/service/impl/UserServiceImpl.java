@@ -1,5 +1,6 @@
 package com.medical.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.medical.entity.User;
 import com.medical.mapper.UserMapper;
 import com.medical.service.UserService;
@@ -16,5 +17,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
+
+    @Override
+    public User loginUser(String name, String password) {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("name",name).eq("password",password);
+        return baseMapper.selectOne(wrapper);
+    }
 
 }

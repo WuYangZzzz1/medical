@@ -20,6 +20,7 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private int id;
             /**
             * 用户id
             */
@@ -30,5 +31,44 @@ package com.medical.entity;
             */
     private Integer uiid;
 
+//    public static long getSerialVersionUID() {
+//        return serialVersionUID;
+//    }
+//
+//    public Integer getUid() {
+//        return uid;
+//    }
+//
+//    public void setUid(Integer uid) {
+//        this.uid = uid;
+//    }
 
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    public Integer getUiid() {
+        return uiid;
+    }
+
+    public void setUiid(Integer uiid) {
+        this.uiid = uiid;
+    }
 }
