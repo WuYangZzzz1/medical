@@ -88,7 +88,6 @@ public class UserController {
     @PutMapping("updatePassword")
     public Object updatePassword(@RequestBody User user,HttpSession session){
         User user1=(User) session.getAttribute("user");
-
         UpdateWrapper<User> userUpdateWrapper=new UpdateWrapper<>();
         userUpdateWrapper.eq("username",user.getUsername()).set("password",user.getPassword());
         userServiceImpl.update(userUpdateWrapper);
