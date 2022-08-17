@@ -9,7 +9,10 @@ import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.Map;
+import java.util.List;
+
 
 /**
  * <p>
@@ -35,16 +38,35 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return null != user;
     }
 
-    /**
+    @Override
+    public int register(User user) {
+        return  baseMapper.insert(user);
+    }
+
+
+    @Override
+    public User findByUserName(String username) {
+        QueryWrapper<User> wrapper= new QueryWrapper<>();
+        wrapper.like("username",username);
+        return baseMapper.selectOne(wrapper);
+    }
+
+    @Override
+    public User findById(int id) {
+        QueryWrapper<User> wrapper=new QueryWrapper<>();
+        wrapper.select("vip_id").eq("id",id);
+        return baseMapper.selectOne(wrapper);
+    }
+     /**
      * 登陆
      * @param username 用户名
      * @param password 密码
      * @return
      */
     @Override
-    public User login(String username,String password) {
-        return userMapper.login(username,password);
+    public User login(String username, String password) {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("username",username).eq("password",password);
+        return baseMapper.selectOne(wrapper);
     }
-
-
 }

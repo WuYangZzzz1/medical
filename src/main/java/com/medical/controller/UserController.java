@@ -1,6 +1,5 @@
 package com.medical.controller;
 
-
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -14,6 +13,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.HtmlUtils;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Date;
 
 /**
@@ -59,12 +60,12 @@ public class UserController {
     }
 
     /**
-     * 登陆接口
+     * 用户登陆接口
      * @param user 用户
      * @param session 会话 储存用户信息
      * @return 登陆成功
      */
-    @PostMapping("login")
+    @PostMapping("userlogin")
     public Result login(@RequestBody User user,HttpSession session){
         String username=user.getUsername();
         String password=user.getPassword();
@@ -78,7 +79,30 @@ public class UserController {
         session.setAttribute("user",user1);
         return Result.success("登陆成功");
     }
+    
+    /**
+     * 医生登陆接口
+     * @param user 用户
+     * @param session 会话 储存用户信息
+     * @return 登陆成功
+     */
+    @PostMapping("/login")
+    public Object loginUser(@RequestBody User user, HttpSession session){
+        Map<String,Object> map = new HashMap<>();
 
+        User login = userService.login(user.getUsername(), user.getPassword());
+        if (login!=null){
+            map.put("data","登录成功");
+            if (login.getDoid()!=null){
+                map.put("data","欢迎您医生");
+            }
+            session.setAttribute("user",login);
+        }
+        else {
+            map.put("data","用户不存在,请先注册");
+        }
+        return map;
+    }
     /**
      * 通过 用户名/账号 修改密码
      * @param user 用户

@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.RegisteredMapper">
+    <!--按照结果嵌套处理-->
+    <select id="getById" parameterType="int" resultMap="RegisteredHospital" >
+        SELECT r.hid hid, h.id id, h.h_name,h.address,h.h_tel, r.did did,r.uid, d.id id,d.d_name,d.hid,u.id,u.username
+        FROM registered r, hospital h,department d,user u
+        WHERE r.hid = h.id
+        and r.did = d.id
+        and d.hid=h.id
+        and r.uid=u.id
+        and r.id= #{id}
+    </select>
+    <resultMap id="RegisteredHospital" type="com.medical.entity.Registered" >
+        <result property="id" column="id"/>
+        <result property="hid" column="hid"/>
+        <result property="uid" column="uid"/>
+        <result property="did" column="did"/>
 
+        <collection property="hospitals" javaType="java.util.ArrayList" ofType="com.medical.entity.Hospital">
+            <result property="id" column="id"/>
+            <result property="hName" column="h_name"/>
+            <result property="address" column="address"/>
+            <result property="hTel" column="h_tel"/>
+        </collection>
+        <collection property="departments" javaType="java.util.ArrayList" ofType="com.medical.entity.Department">
+            <result property="id" column="id"/>
+            <result property="dName" column="d_name"/>
+            <result property="hid" column="hid"></result>
+        </collection>
+        <collection property="users" javaType="java.util.ArrayList" ofType="com.medical.entity.User">
+            <result property="id" column="id"/>
+            <result property="username" column="username"/>
+        </collection>
+    </resultMap>
 </mapper>

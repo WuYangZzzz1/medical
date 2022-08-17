@@ -3,6 +3,7 @@ package com.medical.service;
 import com.medical.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,5 +22,10 @@ public interface UserService extends IService<User> {
      * @param password 密码
      * @return
      */
-    User login(String username,String password);
+   User login(String username,String password);
+
+   int register(User user);
+   User findByUserName(String username);
+   User findById(int id);
+
 }

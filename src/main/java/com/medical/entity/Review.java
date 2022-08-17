@@ -2,6 +2,8 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.List;
+
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -36,6 +38,6 @@ package com.medical.entity;
             * 药品id
             */
     private String drid;
-
-
+    private Drug drug;
+    private Munity munity;
 }

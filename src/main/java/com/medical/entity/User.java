@@ -24,7 +24,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-    private int id;
+
+    private Integer id;
 
     private String username;
 
@@ -75,8 +76,15 @@ package com.medical.entity;
             */
     private String uState;
 
+
             /**
              * 收货地址
              */
     private String harvestAddress;
+             /**
+             * 会员id
+             */
+
+    private Integer vipId;
+
 }
