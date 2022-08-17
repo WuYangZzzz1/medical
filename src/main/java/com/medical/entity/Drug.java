@@ -19,7 +19,10 @@ package com.medical.entity;
     public class Drug implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+
     private int id;
+    
             /**
             * 药品名称
             */

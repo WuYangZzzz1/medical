@@ -2,6 +2,9 @@ package com.medical.entity;
 
     import java.time.LocalDateTime;
     import java.io.Serializable;
+    import java.util.List;
+
+    import com.baomidou.mybatisplus.annotation.TableField;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -21,6 +24,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private int id;
+
             /**
             * 创建时间
             */
@@ -29,7 +34,8 @@ package com.medical.entity;
             /**
             * 咨询内容
             */
-    private String describe;
+            // TODO: 2022/8/15 describe与MySQL关键字冲突 +s
+    private String describes;
 
             /**
             * 咨询状态
@@ -51,5 +57,9 @@ package com.medical.entity;
             */
     private Integer doid;
 
+    @TableField(exist = false)
+    private List<User> users;
 
+    @TableField(exist = false)
+    private List<Doctor> doctors;
 }

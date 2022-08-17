@@ -1,13 +1,16 @@
 package com.medical.entity;
 
+    import java.time.LocalDateTime;
     import java.io.Serializable;
+
+    import com.fasterxml.jackson.annotation.JsonFormat;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
 
 /**
 * <p>
-    * 订单项
+    * 
     * </p>
 *
 * @author JiaJieTang
@@ -16,29 +19,22 @@ package com.medical.entity;
     @Data
         @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
-    public class Orderitme implements Serializable {
+    public class Vip implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private int id;
             /**
-            * 药品id
+            * 注册时间
             */
-    private Integer drid;
+     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime registerDate;
 
             /**
-            * 用户id
+            * 会员到期时间
             */
-    private Integer uid;
-
-            /**
-            * 购买数量
-            */
-    private Integer number;
-
-            /**
-            * 订单id
-            */
-    private Integer oid;
+     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime expireDate;
 
 
 }
