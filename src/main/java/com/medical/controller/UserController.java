@@ -3,6 +3,7 @@ package com.medical.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.medical.entity.User;
 import com.medical.service.UserService;
 import com.medical.service.impl.UserServiceImpl;
@@ -42,7 +43,6 @@ public class UserController {
         String username=user.getUsername();
 
         username=HtmlUtils.htmlEscape(username);
-        user.setUsername(username);
 
         // TODO: 2022/8/12 生成注册时间
         user.setEnrollDate(new Date());

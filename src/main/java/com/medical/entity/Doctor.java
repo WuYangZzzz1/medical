@@ -21,6 +21,8 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
+    private int id;
+
             /**
             * 医生录入时间
             */
