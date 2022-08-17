@@ -17,10 +17,15 @@ import java.util.Map;
 public interface UserService extends IService<User> {
 
     /**
-     * 用户登录
+     * 登陆
+     * @param username 用户名
+     * @param password 密码
+     * @return
      */
-    int register(User user);
+   User login(String username,String password);
+
+   int register(User user);
    User findByUserName(String username);
    User findById(int id);
-   User login(String username,String password);
+
 }
