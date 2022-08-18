@@ -24,4 +24,9 @@ public class OrderitemServiceImpl extends ServiceImpl<OrderitemMapper, Orderitem
     public List<Orderitem> findByUid(Page<Orderitem> page, int uid) {
         return baseMapper.findByUid(page,uid);
     }
+    
+    @Override
+    public List<Orderitme> listOrderitme(Orderitme orderitme) {
+        return orderitmeMapper.listOrderitme(orderitme) ;
+    }
 }
