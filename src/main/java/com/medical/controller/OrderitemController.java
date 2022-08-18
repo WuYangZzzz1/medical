@@ -51,6 +51,17 @@ public class OrderitemController {
         }
         else map.put("data","查询失败");
         return map;
-}
+    }
+    
+    /**
+     * 通过订单项查询订单
+     * @param orderitme
+     * @return
+     */
+    @PostMapping("selectOrder")
+    public Result selectOrder(Orderitme orderitme){
+        List<Orderitme> orderitmes = orderitmeService.listOrderitme(orderitme);
+        return Result.success(orderitmes);
+    }
 
 }
