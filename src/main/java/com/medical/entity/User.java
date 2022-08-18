@@ -86,5 +86,24 @@ package com.medical.entity;
              */
 
     private Integer vipId;
+        
+    public String getStatusDesc(){
+      String desc ="未知";
+      switch(uState){
+        case UserService.sealNumber:
+            desc="封号";
+            break;
+        case UserService.normal:
+            desc="正常";
+            break;
+        default:
+            desc="未知";
+        }
+        uState = desc;
+        return uState;
+    }
+
+@TableField(exist = false)
+    List<Doctor>doctor;
 
 }
