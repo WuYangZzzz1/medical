@@ -3,6 +3,8 @@ package com.medical.service;
 import com.medical.entity.Vip;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -14,4 +16,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IVipService extends IService<Vip> {
     int add(Vip vip);
     Vip findId(Vip vip);
+    
+    List<Vip> selectvip ();
 }
