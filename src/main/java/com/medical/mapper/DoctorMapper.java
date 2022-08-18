@@ -2,6 +2,9 @@ package com.medical.mapper;
 
 import com.medical.entity.Doctor;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,10 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface DoctorMapper extends BaseMapper<Doctor> {
 
+    //分页
+    @Select(" select * from doctor  limit #{pageNum},#{pageSize}")
+    List<Doctor> selectPage(Integer pageNum, Integer pageSize);
+    //计数
+    @Select("select count(*) from doctor ")
+    Integer selectTotal();
 }
