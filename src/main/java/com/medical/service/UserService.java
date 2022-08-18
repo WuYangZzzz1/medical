@@ -15,6 +15,9 @@ import java.util.Map;
  * @since 2022-08-11
  */
 public interface UserService extends IService<User> {
+    
+    public static final  String sealNumber = "sealNumber";
+    public static final String normal = "normal";
 
     /**
      * 登陆
