@@ -1,47 +1,26 @@
-package com.medical.service.impl;
+package com.medical.service;
 
 import com.medical.entity.Hospital;
-import com.medical.mapper.HospitalMapper;
-import com.medical.service.HospitalService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
+import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 
 /**
  * <p>
- * 医院 服务实现类
+ * 医院 服务类
  * </p>
  *
  * @author JiaJieTang
  * @since 2022-08-11
  */
-@Service
-public class HospitalServiceImpl extends ServiceImpl<HospitalMapper, Hospital> implements HospitalService {
-  @Resource
-  HospitalMapper hospitalMapper;
+public interface HospitalService extends IService<Hospital> {
 
-  @Override
-  public boolean addHospital(Hospital hospital) {
-    return hospitalMapper.add(hospital)>0;
-  }
+      boolean addHospital(Hospital hospital);
 
-  @Override
-  public boolean deleteHospital(int id) {
-    return hospitalMapper.delete(id)>0;
-  }
+      boolean deleteHospital(int id);
 
-  @Override
-  public boolean updateHospital(Hospital hospital) {
-    return hospitalMapper.update(hospital)>0;
-  }
+      boolean updateHospital(Hospital hospital);
 
-  @Override
-  public List<Hospital> likeName(String hName) {
-    return hospitalMapper.Likes(hName);
-  }
+      List<Hospital> likeName( String hName);
 
 
 }
