@@ -17,4 +17,6 @@ import java.util.List;
  */
 public interface OrderitemMapper extends BaseMapper<Orderitem> {
     List<Orderitem> findByUid(Page<Orderitem> page, @Param("uid") int uid);
+    
+    List<Orderitme>listOrderitme(Orderitme orderitme);
 }
