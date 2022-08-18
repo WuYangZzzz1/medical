@@ -53,8 +53,20 @@ public class OrdersController {
 
         return Result.success(myOrders);
     }
+    
+    /**
+     * 改变订单状态
+     * @param id
+     * @param orders
+     * @return
+     */
+    @PostMapping("updateOrderState")
+     public Result updateOrderState(@RequestParam("id")int id,Orders orders){
+        UpdateWrapper<Orders>ordersUpdateWrapper=new UpdateWrapper<>();
+        ordersUpdateWrapper.eq("id",id).set("order_state",orders.getOrderState());
+        ordersService.update(ordersUpdateWrapper);
+        return Result.success();
 
-//    @GetMapping("orderReview")
-//    public Object orderReview(){}
+    }
 
 }

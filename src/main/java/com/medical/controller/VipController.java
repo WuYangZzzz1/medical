@@ -57,4 +57,10 @@ public class VipController {
     return map;
     }
     
+    //查询会员
+    @GetMapping("Vip")
+    public List<Vip> selectVip(){
+        return iVipService.selectvip();
+    }
+    
 }

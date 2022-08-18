@@ -1,6 +1,8 @@
 package com.medical.entity;
 
     import java.io.Serializable;
+
+    import com.baomidou.mybatisplus.annotation.TableField;
     import lombok.Data;
     import lombok.EqualsAndHashCode;
     import lombok.experimental.Accessors;
@@ -11,20 +13,19 @@ package com.medical.entity;
     * </p>
 *
 * @author JiaJieTang
-* @since 2022-08-12
+* @since 2022-08-11
 */
     @Data
         @EqualsAndHashCode(callSuper = false)
     @Accessors(chain = true)
-    public class Orderitem implements Serializable {
+    public class Orderitme implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
+    private  int id;
             /**
             * 药品id
             */
     private Integer drid;
-    private Drug drug;
 
             /**
             * 用户id
@@ -40,7 +41,7 @@ package com.medical.entity;
             * 订单id
             */
     private Integer oid;
-    private Orders orders;
-    private float totalPrice;
 
+    @TableField(exist = false)
+    private Orders orders;
 }

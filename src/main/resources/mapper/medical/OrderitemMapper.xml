@@ -35,4 +35,18 @@
 <select id="findByUid" resultMap="Orderitems">
     SELECT * from orderitem LEFT JOIN orders on orderitem.oid=orders.id AND orderitem.uid=#{uid} LEFT JOIN drug ON drug.id=orderitem.drid left join category on drug.cid=category.id
 </select>
+    
+    <select id="listOrderitme" resultMap="selectOrders">
+    SELECT oi.id,oi.number,oi.oid,o.order_number,o.order_state  FROM orderitme oi JOIN orders o ON oi.oid=o.id;
+    </select>
+    <resultMap id="selectOrders" type="com.medical.entity.Orderitme">
+        <result column="id" property="id"></result>
+        <result column="number" property="number"></result>
+        <result column="oid" property="oid"></result>
+        <association property="orders">
+           <result column="id" property="id"></result>
+            <result column="order_state" property="orderState"></result>
+            <result column="order_number" property="orderNumber"></result>
+        </association>
+    </resultMap>
 </mapper>

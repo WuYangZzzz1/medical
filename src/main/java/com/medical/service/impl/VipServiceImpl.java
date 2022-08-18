@@ -17,7 +17,9 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class VipServiceImpl extends ServiceImpl<VipMapper, Vip> implements IVipService {
-
+    @Autowired
+    VipMapper vipMapper;
+    
     @Override
     public int add(Vip vip) {
         return baseMapper.insert(vip);
@@ -30,6 +32,10 @@ public class VipServiceImpl extends ServiceImpl<VipMapper, Vip> implements IVipS
         wrapper.select("id");
         return baseMapper.selectOne(wrapper);
     }
-
+    
+    @Override
+    public List<Vip> selectvip() {
+        return vipMapper.selectVip();
+    }
 
 }

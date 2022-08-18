@@ -30,6 +30,9 @@ import java.util.Map;
 public class ReviewController {
 @Autowired
 ReviewServiceImpl reviewService;
+    /**
+    * 我的评论
+    */
     @GetMapping("/getall")
     public Object getAll(HttpSession session,Long current,Long size){
     Page<Review> page = new Page<>(current,size);
@@ -49,4 +52,33 @@ ReviewServiceImpl reviewService;
 
     return map;
 }
+    
+
+//    查询全部评论
+    /**
+     * 评论查询
+     * @param id
+     * @return
+     */
+    @PostMapping("/SelectReview")
+    public Result SelectReview(@RequestParam("id")int id){
+        QueryWrapper<Review> reviewQueryWrapper=new QueryWrapper<>();
+        reviewQueryWrapper.eq("id",id);
+        List<Review>reviewList=reviewService.list(reviewQueryWrapper);
+        return Result.success(reviewList);
+    }
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    @DeleteMapping("/DeleteReview")
+    public Result DeleteReview(@RequestParam("id")int id){
+        QueryWrapper<Review> reviewQueryWrapper=new QueryWrapper<>();
+        reviewQueryWrapper.eq("id",id);
+        boolean remove=reviewService.remove(reviewQueryWrapper);
+        return Result.success(remove);
+
+    }
 }

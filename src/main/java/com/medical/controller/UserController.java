@@ -147,5 +147,19 @@ public class UserController {
         user1.setHarvestAddress(user.getHarvestAddress());
         return Result.success(user);
     }
+    
+    /**
+     * 进行封号
+     * @param id
+     * @param user
+     * @return
+     */
+    @PostMapping("sealNumberSelect")
+    public  Result sealNumberSelect(@RequestParam("id")int id,User user){
+        UpdateWrapper<User> userUpdateWrapper=new UpdateWrapper<>();
+        userUpdateWrapper.eq("id",id).set("u_state",user.getUState());
+         userService.update(userUpdateWrapper);
+         return Result.success(user);
+    }
 
 }

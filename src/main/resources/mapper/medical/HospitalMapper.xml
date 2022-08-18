@@ -2,4 +2,38 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.medical.mapper.HospitalMapper">
 
+   <insert id="add" parameterType="com.medical.entity.Hospital">
+            insert  into hospital(h_name,address,h_tel,information)
+            values (#{hName},#{address},#{hTel},#{information})
+   </insert>
+
+    <delete id="delete" parameterType="com.medical.entity.Hospital">
+        delete from hospital where id=#{id}
+    </delete>
+
+    <update id="update" parameterType="com.medical.entity.Hospital">
+        update hospital
+        <set>
+            <if test="hName !=null">
+                h_name = #{hName},
+            </if>
+            <if test="address !=null">
+                address = #{address},
+            </if>
+            <if test="hTel != null">
+                h_tel = #{hTel},
+            </if>
+            <if test="information !=null">
+                information=#{information}
+            </if>
+        </set>
+        where  id=#{id}
+
+    </update>
+
+    <select id="Likes" resultType="com.medical.entity.Hospital">
+         select  *from hospital where h_name like concat("%",#{hName},"%")
+    </select>
 </mapper>
+
+
