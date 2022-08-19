@@ -21,6 +21,8 @@ package com.medical.entity;
     public class Vaccine implements Serializable {
 
     private static final long serialVersionUID = 1L;
+        
+    private int id;
 
             /**
             * 疫苗名称
