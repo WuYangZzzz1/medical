@@ -19,7 +19,7 @@ package com.medical.entity;
     public class Category implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     private int id;
 
             /**

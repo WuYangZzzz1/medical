@@ -20,8 +20,9 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
 
-    private int id;
 
+    private int id;
+    
             /**
             * 药品名称
             */
@@ -30,7 +31,7 @@ package com.medical.entity;
             /**
             * 描述
             */
-    private String describe;
+    private String describes;
 
             /**
             * 功能
@@ -45,12 +46,12 @@ package com.medical.entity;
             /**
             * 性状
             */
-    private String character;
+    private String charactere;
 
             /**
             * 用法
             */
-    private String usage;
+    private String usages;
 
             /**
             * 成分
