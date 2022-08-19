@@ -20,7 +20,7 @@ package com.medical.entity;
 
     private static final long serialVersionUID = 1L;
         
-    private int classes;
+    private int id;
 
             /**
             * 类别
